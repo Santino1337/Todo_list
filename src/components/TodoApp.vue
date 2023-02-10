@@ -15,6 +15,7 @@
         SUBMIT
       </button>
     </div>
+  
 
     <!-- Task table -->
     <table class="table table-bordered mt-5">
@@ -39,8 +40,8 @@
               @click="changeStatus(index)"
               :class="{
                 'text-danger': task.status === 'to-do',
-                'text-success': task.status === 'finished',
-                'text-warning': task.status === 'in-progress',
+                'text-success': task.status === 'Завершено',
+                'text-warning': task.status === 'В процессе',
               }"
             >
               {{ capitalizeFirstChar(task.status) }}
@@ -68,12 +69,13 @@ export default {
   props: {
     msg: String,
   },
+  
 
   data() {
     return {
       task: "",
       editedTask: null,
-      statuses: ["to-do", "in-progress", "finished"],
+      statuses: ["to-do", "В процессе", "Завершено"],
 
       /* Status could be: 'to-do' / 'in-progress' / 'finished' */
       tasks: [
@@ -83,11 +85,11 @@ export default {
         },
         {
           name: "Eat 1 kg chocolate in 1 hour.",
-          status: "in-progress",
+          status: "В процессе",
         },
         {
           name: "Create YouTube video.",
-          status: "finished",
+          status: "Завершено",
         },
       ],
     };
